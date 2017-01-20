@@ -44,10 +44,10 @@
 
                     $("#footer-newsletter .textbox").blur(
                             function() {
-                                var field = $(this).attr("name");
-                                var defaultval = "Naam";
-                                if(field == "email")
-                                    defaultval = "E-mailadres";
+                                var field = $(this).attr("oud-wachtwoord");
+                                var defaultval = "Oud wachtwoord";
+                                if(field == "nieuw-wachtwoord")
+                                    defaultval = "Nieuw wachtwoord";
 
 
                                 if($(this).val() == "")
@@ -75,14 +75,22 @@
         .cufon-loading {
             visibility: hidden;
         }
-        .button2{
+        .wachtwoord-wijzigen{
             position: relative;
-            left: 200px;
-            top: 66px;
+            left: 300px;
+            top: 120px;
+        }
+        .nieuw-ww, .bevestig-ww, .oud-ww{
+            position: relative;
+            bottom: 18px;
+            left: 120px;;
         }
         .inloggevens{
             position: relative;
             bottom: 25px;
+        }
+        #header .homelink{
+            margin-top: 0px;
         }
     </style>
     <script type="text/javascript">
@@ -116,6 +124,19 @@
             }};
         function removeElement(element) { element && element.parentNode && element.parentNode.removeChild(element);}
         //]]>
+    </script>
+
+    <script>
+        function submit(){
+            var oudWachtwoord = document.getElementById('oud-ww');
+            var nieuwWachtwoord = document.getElementById('nieuw-ww');
+            var bevestigWachtwoord = document.getElementById('bevestig-ww');
+
+
+            alert(oud-ww.value);
+            alert(nieuw-ww.value);
+            alert(bevestig-ww.value);
+        }
     </script>
 
 
@@ -253,16 +274,17 @@
             <img src="/img/producten.png"/>
             <span>
 			<strong>Wachtwoord herstellen</strong><br/><br>
-                <form action="google.nl" method="post">
-                <input type="button" class="button2" value="Wachtwoord wijzigen"/>
+                <form method="post">
+                <input type="submit" onclick="submit()" class="wachtwoord-wijzigen" value="Wachtwoord wijzigen"/>
                     <div class="inloggevens">
-                <input type="hidden" name="newsletterpost" value="signup"/>
-                <input type="text" class="herstellen" name="name" value="Oude wachtwoord" /><br/><br>
-                <input type="text" class="herstellen" name="name" value="Nieuwe wachtwoord"/><br/><br>
-                    <input type="input" class="herstellen" name="name" value="Nieuwe wachtwoord"/><br/><br>
+
+              Oud wachtwoord: <input type="text" class="oud-ww" name="oud-wachtwoord" required  /><br/><br>
+                Nieuw wachtwoord: <input type="text" class="nieuw-ww" name="nieuw-wachtwoord" required /><br/><br>
+                    Bevestig het nieuwe wachtwoord: <input type="input" class="bevestig-ww" name="nieuw-wachtwoord" required /><br/><br>
         </div>
 
             </form>
+
 
 		</span>
         </a>
